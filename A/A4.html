@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Responsive Navigation bar</title>
+        <style>
+        .navBar {
+            background-color: teal;
+            width: 100vw;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-content: center;
+        }
+        .link > div {
+            background-color: teal;
+            font-size: 2em;
+            float: right;
+            padding: 12px 3vw;
+            transition: 1s;
+            color: white;
+            font-family: "Open Sans", sans-serif;
+        }
+        .link > div:hover {
+            background-color: cyan;
+        }
+        img {
+            width: 100px;
+            height: 40px;
+            padding: 10px 20px;
+            float: left;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="navBar">
+            <img src="logo.png">
+            <div class="link">
+                <div>Link</div>
+                <div>Link</div>
+                <div>Link</div>
+                <div>Link</div>
+            </div>
+        </div>
+    </body>
+</html>

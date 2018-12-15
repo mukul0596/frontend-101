@@ -3,10 +3,13 @@
     <head>
         <title>Responsive Navigation bar</title>
         <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
         .navBar {
             background-color: teal;
             width: 100vw;
-            height: 60px;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -22,6 +25,7 @@
             color: white;
             font-family: "Open Sans", sans-serif;
             cursor: pointer;
+            text-align: center;
         }
         .link > div:hover {
             background-color: cyan;
@@ -32,6 +36,18 @@
             padding: 10px 20px;
             float: left;
             cursor: pointer;
+        }
+        @media (max-width: 600px){
+            .navBar {
+                flex-direction: column;
+                width: 100vw;
+                align-items: center;
+            }
+            .link > div {
+                width: 100vw;
+                float: none;
+                padding: 12px 0;
+            }
         }
         </style>
     </head>

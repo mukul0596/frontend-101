@@ -40,14 +40,17 @@
         @media (max-width: 600px){
             .navBar {
                 flex-direction: column;
-                width: 100vw;
                 align-items: center;
+            }
+            img {
+                float: none;
+                padding: 10px 0;
             }
             #link {
                 position: absolute;
                 top: 60px;
                 right: 100vw;
-                height: 100vw;
+                height: 91.5vh;
                 background-color: teal;
                 transition: 0.35s ease-in-out;
             }
@@ -56,23 +59,25 @@
                 float: none;
                 padding: 12px 0;
             }    
-            .hamburger {
+            #hamburger {
                 position: absolute;
-                top: 12px;
+                top: 5px;
                 left: 15px;
                 cursor: pointer;
             }
-            .hamburger > div {
+            #hamburger > div {
                 width: 40px;
                 height: 5px;
-                margin: 5px 0;
+                margin: 9px 0;
                 background-color: white;
+                transform-origin: left;
+                transition: 0.35s;
             }
         }
         </style>
     </head>
     <body>        
-        <div class="hamburger" onclick="toggleMenu()">
+        <div id="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
@@ -93,11 +98,17 @@
             if (key == 0)
             {
                 document.getElementById("link").style.transform="translateX(100vw)";
+                document.getElementById("hamburger").firstElementChild.style.transform="rotate(45deg)";
+                document.getElementById("hamburger").lastElementChild.style.transform="rotate(-45deg)";
+                document.getElementById("hamburger").firstElementChild.nextElementSibling.style.opacity="0";
                 key++;
             }
             else if (key == 1)
             {
                 document.getElementById("link").style.transform="translateX(0)";
+                document.getElementById("hamburger").firstElementChild.style.transform="rotate(0deg)";
+                document.getElementById("hamburger").lastElementChild.style.transform="rotate(0deg)";
+                document.getElementById("hamburger").firstElementChild.nextElementSibling.style.opacity="1";
                 key--;
             }
         }

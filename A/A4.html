@@ -43,6 +43,14 @@
                 width: 100vw;
                 align-items: center;
             }
+            #link {
+                position: absolute;
+                top: 60px;
+                right: 100vw;
+                height: 100vw;
+                background-color: teal;
+                transition: 0.35s ease-in-out;
+            }
             .link > div {
                 width: 100vw;
                 float: none;
@@ -52,6 +60,7 @@
                 position: absolute;
                 top: 12px;
                 left: 15px;
+                cursor: pointer;
             }
             .hamburger > div {
                 width: 40px;
@@ -63,14 +72,14 @@
         </style>
     </head>
     <body>        
-        <div class="hamburger">
+        <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
         <div class="navBar">
             <img src="logo.png">
-            <div class="link">
+            <div class="link" id="link">
                 <div>Link</div>
                 <div>Link</div>
                 <div>Link</div>
@@ -78,4 +87,19 @@
             </div>
         </div>
     </body>
+    <script>
+        var key = 0;
+        function toggleMenu() {
+            if (key == 0)
+            {
+                document.getElementById("link").style.transform="translateX(100vw)";
+                key++;
+            }
+            else if (key == 1)
+            {
+                document.getElementById("link").style.transform="translateX(0)";
+                key--;
+            }
+        }
+    </script>
 </html>

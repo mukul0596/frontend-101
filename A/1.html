@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Grid</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .parent {
+                background-color: teal;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-content: space-around;
+                align-items: center;
+            }
+            .parent > div {
+                width: 20vw;
+                height: 30vh;
+                margin: 3vh 2vw;
+                background-color: white;
+            }
+            @media screen and (max-width: 1200px) {
+                .parent > div {
+                    width: 25vw;
+                }
+            }
+            @media screen and (max-width: 900px) {
+                .parent > div {
+                    width: 40vw;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .parent > div {
+                    width: 80vw;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </body>
+</html>

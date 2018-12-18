@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            display: flex;
             width: 100vw;
             height: 80vh;
-            justify-content: space-evenly;
-            align-items: center;
         }
         .button1 {
             perspective: 200px;
@@ -19,6 +16,9 @@
             transform-style: preserve-3d;
             transform-origin: 0 50%;
             transform: rotateY(-30deg);
+            position: absolute;
+            top: 40vh;
+            left: 25vw;
         }
         .button1 > div {
             color: white;
@@ -54,8 +54,15 @@
             top: 0;
             left: 200px;
         }
-        .button2 > div {
+        .button2 {
+            height: 60px;
+            width: 200px;
             position: absolute;
+            top: 40vh;
+            right: 25vw;
+        }
+        .button2 > div {
+            position: relative;
             line-height: 58px;
             text-align: center;
             color: white;
@@ -74,32 +81,32 @@
             width: 200px;
             transform-origin: bottom;
             transform: skewX(-40deg) rotateX(60deg);
-            top: 238px;
-            left: 1097.5px;
+            top: -178.5px;
+            left: -1;
         }
         .button2 > .rightside {
             background-color: maroon;
             width: 50px;
             transform-origin: left;
             transform: skewY(-50deg) rotateY(60deg);
-            top: 297px;
-            left: 1298px;
+            top: -60px;
+            left: 200px;
         }
         .button2 > .lowerside {
             background-color: maroon;
             width: 200px;
             transform-origin: bottom;
             transform: skewX(40deg) rotateX(90deg);
-            top: 297px;
-            left: 1097.5px;
+            top: -238.5px;
+            left: -1px;
         }
         .button2 > .leftside {
             background-color: maroon;
             width: 50px;
             transform-origin: left;
             transform: skewY(20deg) rotateY(90deg);
-            top: 297px;
-            left: 1098px;
+            top: -180px;
+            left: 0;
         }
         .button2 > .front:hover ~ .upperside {
             transform: skewX(0deg) rotateX(0deg) translate(10px, -10px);

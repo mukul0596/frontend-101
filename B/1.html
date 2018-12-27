@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Keyboard Music</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            div {
+                width: 75px;
+                height: 75px;
+                background-color: black;
+                color: cyan;
+                font-size: 16px;
+                font-family: sans-serif;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: solid 3px teal;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <audio src="bell.wav"></audio>
+        <div onclick="ring('a')">A<br>Bell</div>
+        <div onclick="ring('s')">S<br>Bong</div>
+        <div onclick="ring('d')">D<br>Crash</div>
+        <div onclick="ring('f')">F<br>Farfisa</div>
+        <div onclick="ring('g')">G<br>Flute</div>
+        <div onclick="ring('h')">H<br>Guitar</div>
+        <div onclick="ring('j')">J<br>Organ</div>
+        <div onclick="ring('k')">K<br>Piano</div>
+        <div onclick="ring('l')">L<br>Shamisen</div>
+    </body>
+    <script>
+        window.addEventListener("keydown", function(event){
+            if(event.key == "a" | event.key == "A")
+            ring("a");
+            if(event.key == "s" | event.key == "S")
+            ring("s");
+            if(event.key == "d" | event.key == "D")
+            ring("d");
+            if(event.key == "f" | event.key == "F")
+            ring("f");
+            if(event.key == "g" | event.key == "G")
+            ring("g");
+            if(event.key == "h" | event.key == "H")
+            ring("h");
+            if(event.key == "j" | event.key == "J")
+            ring("j");
+            if(event.key == "k" | event.key == "K")
+            ring("k");
+            if(event.key == "l" | event.key == "L")
+            ring("l");
+        });
+        var elem;
+        var sound = document.getElementsByTagName("audio")[0];
+        var divNo = document.getElementsByTagName("div");
+        function ring(elem) {
+            switch (elem) {
+                case 'a': {
+                    divNo[0].style.color="teal";
+                    divNo[0].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[0].style.color="cyan";
+                    divNo[0].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "bell.wav";
+                    sound.play();
+                    break;
+                }
+                case 's': {
+                    divNo[1].style.color="teal";
+                    divNo[1].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[1].style.color="cyan";
+                    divNo[1].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "bong.wav";
+                    sound.play();
+                    break;
+                }
+                case 'd': {
+                    divNo[2].style.color="teal";
+                    divNo[2].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[2].style.color="cyan";
+                    divNo[2].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "crash.wav";
+                    sound.play();
+                    break;
+                }
+                case 'f': {
+                    divNo[3].style.color="teal";
+                    divNo[3].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[3].style.color="cyan";
+                    divNo[3].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "farfisa.wav";
+                    sound.play();
+                    break;
+                }
+                case 'g': {
+                    divNo[4].style.color="teal";
+                    divNo[4].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[4].style.color="cyan";
+                    divNo[4].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "flute.wav";
+                    sound.play();
+                    break;
+                }
+                case 'h': {
+                    divNo[5].style.color="teal";
+                    divNo[5].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[5].style.color="cyan";
+                    divNo[5].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "guitar.wav";
+                    sound.play();
+                    break;
+                }
+                case 'j': {
+                    divNo[6].style.color="teal";
+                    divNo[6].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[6].style.color="cyan";
+                    divNo[6].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "organ.wav";
+                    sound.play();
+                    break;
+                }
+                case 'k': {
+                    divNo[7].style.color="teal";
+                    divNo[7].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[7].style.color="cyan";
+                    divNo[7].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "piano.wav";
+                    sound.play();
+                    break;
+                }
+                case 'l': {
+                    divNo[8].style.color="teal";
+                    divNo[8].style.borderColor="cyan";
+                    setTimeout(function() {
+                    divNo[8].style.color="cyan";
+                    divNo[8].style.borderColor="teal";    
+                    }, 200);
+                    sound.src = "shamisen.wav";
+                    sound.play();
+                    break;
+                }
+                default: {
+                    alert("Oops! You pressed the wrong key");
+                    break;
+                }
+            }
+        }
+    </script>
+</html>

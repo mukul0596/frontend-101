@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiple Select</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+            }
+            table {
+                border: solid 0 cyan;
+                background-color: rgb(5, 5, 40);
+                color: cyan;
+                font-family: sans-serif;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <table border=1 align=center cellpadding=25px cellspacing=0 width=450px>
+            <tr>
+                <td><input type="checkbox" onclick=selectAll(this.id) id="c1"></td>
+                <td>This is an inbox layout</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" onclick=selectAll(this.id) id="c2"></td>
+                <td>Check one item</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" onclick=selectAll(this.id) id="c3"></td>
+                <td>Hold on your SHIFT key</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" onclick=selectAll(this.id) id="c4"></td>
+                <td>Check a lower item</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" onclick=selectAll(this.id) id="c5"></td>
+                <td>Everything inbetween should also be set to checked</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" onclick=selectAll(this.id) id="c6"></td>
+                <td>Try to do it without any liberaries</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" onclick=selectAll(this.id) id="c7"></td>
+                <td>Just regular Javascript</td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        var key;
+        window.addEventListener("keydown", function(event){
+            if(event.keyCode == 16){
+                key=1;
+            }
+        });
+        window.addEventListener("keyup", function(event){
+            if(event.keyCode == 16){
+                key=0;
+            }
+        });
+        var id;
+        var from = parseInt("c1".charAt(1));
+        var to;
+        function selectAll(id){
+            if(key == 1){
+                to = parseInt(id.charAt(1));
+                if(from > to){
+                    to = to + from;
+                    from = to - from;
+                    to = to - from;
+                }
+                for(var i = from; i <= to; i++){
+                    var toId = "c"+i;
+                    document.getElementById(toId.toString()).checked=true;
+                }
+            }
+            else
+            from = parseInt(id.charAt(1));
+            
+        }
+    </script>
+</html>

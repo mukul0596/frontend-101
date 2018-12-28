@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sequence Detector</title>
+    </head>
+    <body>
+        Type "DVM" to see the magic!<br>
+    </body>
+    <script>
+        window.addEventListener("keydown", dvm);
+        var lastKey;
+        function dvm(event){
+            if(event.key == "D"){
+                lastKey = "D";
+            }
+            else if(event.key == "V" && lastKey == "D"){
+                lastKey = "V";
+            }
+            else if(event.key == "M" && lastKey == "V"){
+                document.body.appendChild(document.createTextNode("Front-End development is fun."));
+                document.body.appendChild(document.createElement("brS"));
+            }
+            else
+            lastKey = "#";
+        }
+    </script>
+</html>

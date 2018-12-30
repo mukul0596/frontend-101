@@ -93,7 +93,7 @@
                 background-color: grey;
             }
             .leftButton > div:nth-of-type(1) {
-                height: 30px;    
+                height: 30px;
                 margin-bottom: 20px;
             }
             .leftButton > div:nth-of-type(2) {
@@ -102,6 +102,23 @@
             }
             .leftButton > div:nth-of-type(3) {
                 height: 50px;    
+            }
+            .curves {
+                height: 15px;
+			    width: 15px;
+		    	box-shadow: 6px -6px 0 1px #000;
+	    		border-radius: 50%;
+                transform: rotate(-2deg);
+    			position: relative;
+            }
+            .leftt {
+                left: -133px;
+                top: -5px;
+            }
+            .rightt {
+                left: 44px;
+	    		top: -5px;
+		    	transform: rotateY(180deg);
             }
         </style>
     </head>
@@ -117,13 +134,12 @@
                     <div class="screenTop">
                         <div></div>
                         <div></div>
+                        <div class="curves leftt"></div>
+                        <div class="curves rightt"></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="rightButton"></div>
     </body>
-    <script>
-    
-    </script>
 </html>

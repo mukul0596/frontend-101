@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FrontEnd Tech</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: sans-serif;
+            }
+            .container {
+                border: solid 10px lightgray;
+            }
+            .containItem {
+                height: 400px;
+                padding: 0 50px;
+                font-size: 20px;
+                overflow-y: scroll;
+            }
+            .itemName {
+                margin: 25px;
+                border-width: 0 0 1px 0;
+                border-color: black;
+                border-style: solid;
+                width: 300px;
+                user-select: none;
+            }
+            .addButton {
+                margin: 25px;
+                padding: 5px 10px;
+                border: solid 1px black;
+                background-color: lightgray;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            h1 {
+                font-size: 36px;
+                color: black;
+                text-align: center;
+            }
+            button:not(.addButton) {
+                background-color: lightgray;
+                border: 0;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                font-size: 16px;
+                float: right;
+                cursor: pointer;
+                user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="containItem">
+                <h1>FrontEnd Tech</h1>
+            </div>
+            <hr width=400px color="lightgray">
+            <div class="addItem">
+                <form name="frontendTech">
+                    <input type="text" class="itemName" name="itemName">
+                    <input type="button" value="Add Item" class="addButton" onclick="addItem()">
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        if(JSON.parse(localStorage.getItem("item")) == null){
+        var item = [];
+        var i = 0;
+        } else{
+        item = JSON.parse(localStorage.getItem("item"));
+        var i = item.length;
+           }
+        function addItem(){
+            item[i] = document.frontendTech.itemName.value;
+            var container = document.getElementsByClassName("containItem")[0];
+            var span = document.createElement("span");
+            span.appendChild(document.createTextNode(item[i]));
+            container.appendChild(span);
+            var  button = document.createElement("button");
+            button.className = "fa fa-close";
+            button.setAttribute("onclick", "removeItem("+i+",this)");
+            container.appendChild(button);
+            container.appendChild(document.createElement("hr"));
+            i++;
+        }
+        window.onbeforeunload = function(){
+            localStorage.setItem("item", JSON.stringify(item));
+        }
+        window.onload = function(){
+            document.getElementsByClassName("itemName")[0].focus();
+            for(var j=0; j<item.length; j++){
+                if(item[j] != null){
+                    var container = document.getElementsByClassName("containItem")[0];
+                    var span = document.createElement("span");
+                    span.appendChild(document.createTextNode(item[j]));
+                    container.appendChild(span);
+                    var  button = document.createElement("button");
+                    button.className = "fa fa-close";
+                    button.setAttribute("onclick", "removeItem("+j+",this)");
+                    container.appendChild(button);
+                    container.appendChild(document.createElement("hr"));
+                }
+            }
+        }
+        var indx;
+        var btn;
+        function removeItem(indx,btn){
+            btn.style.display="none";
+            document.getElementsByTagName("span")[indx].style.display="none";
+            document.getElementsByTagName("hr")[indx].style.display="none";
+            item.splice(indx, 1);
+            localStorage.setItem("item", JSON.stringify(item));
+            window.location.reload();
+        }
+        document.addEventListener("keydown", function(e){
+			if(!e) e = window.event;
+			if(e.keyCode == 13){
+				addItem();
+			}
+		});
+    </script>
+</html>
